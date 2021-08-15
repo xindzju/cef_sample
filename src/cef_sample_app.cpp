@@ -88,11 +88,11 @@ namespace
     };
 } // namespace
 
-SimpleApp::SimpleApp()
+CefSampleApp::CefSampleApp()
 {
 }
 
-void SimpleApp::OnContextInitialized()
+void CefSampleApp::OnContextInitialized()
 {
     CEF_REQUIRE_UI_THREAD();
 
@@ -113,7 +113,7 @@ void SimpleApp::OnContextInitialized()
 #endif
 
     // SimpleHandler implements browser-level callbacks.
-    CefRefPtr<SimpleClient> handler(new SimpleClient(use_views));
+    CefRefPtr<CefSampleClient> handler(new CefSampleClient(use_views));
 
     // Specify CEF browser settings here.
     CefBrowserSettings browser_settings;
@@ -124,7 +124,7 @@ void SimpleApp::OnContextInitialized()
     // that instead of the default URL.
     url = command_line->GetSwitchValue("url");
     if (url.empty())
-        url = "https://www.cnblogs.com/w4ngzhen/";
+        url = "https://github.com/xindzju";
 
     if (use_views && !enable_chrome_runtime)
     {
@@ -144,7 +144,7 @@ void SimpleApp::OnContextInitialized()
 #if defined(OS_WIN)
         // On Windows we need to specify certain flags that will be passed to
         // CreateWindowEx().
-        window_info.SetAsPopup(NULL, "simple-cef by w4ngzhen");
+        window_info.SetAsPopup(NULL, "CEF Sample by xindzju");
 #endif
 
         // Create the first browser window.

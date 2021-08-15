@@ -1,17 +1,13 @@
-#ifndef SIMPLE_APP_H
-#define SIMPLE_APP_H
 #pragma once
-
 #include "include/cef_app.h"
 
 // Implement application-level callbacks for the browser process.
-class SimpleApp : public CefApp, public CefBrowserProcessHandler {
+class CefSampleApp : public CefApp, public CefBrowserProcessHandler {
 public:
-    SimpleApp();
+    CefSampleApp();
 
     // CefApp methods:
-    virtual CefRefPtr<CefBrowserProcessHandler> GetBrowserProcessHandler()
-        OVERRIDE {
+    virtual CefRefPtr<CefBrowserProcessHandler> GetBrowserProcessHandler() OVERRIDE {
         return this;
     }
 
@@ -20,7 +16,6 @@ public:
 
 private:
     // Include the default reference counting implementation.
-    IMPLEMENT_REFCOUNTING(SimpleApp);
+    IMPLEMENT_REFCOUNTING(CefSampleApp);
 };
 
-#endif
